@@ -7,4 +7,7 @@ public interface ProductService {
     void saveProduct(Product product);
     Product getProductById(Long id);
     void deleteProduct(Long id);
+    Product findByName(String name);
+    List<Product> searchProduct(String keyword);
+
 }
