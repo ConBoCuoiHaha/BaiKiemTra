@@ -1,11 +1,12 @@
 package com.example.KiemTra.controller;
 
-import com.example.KiemTra.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.example.KiemTra.service.ProductService;
 
 @Controller
 @RequestMapping("/products")
@@ -31,4 +32,10 @@ public class ProductController {
         productService.saveProduct(product);
         return "redirect:/products";
     }
+    @GetMapping("/delete/{id}")
+    public String deleteProduct(@org.springframework.web.bind.annotation.PathVariable Long id) {
+        productService.deleteProduct(id);
+        return "redirect:/products";
+    }
+
 }
