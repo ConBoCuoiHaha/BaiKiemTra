@@ -7,4 +7,5 @@ public interface ProductService {
     void saveProduct(Product product);
     Product getProductById(Long id);
     void deleteProduct(Long id);
+    List<Product> searchProduct(String keyword);
 }
