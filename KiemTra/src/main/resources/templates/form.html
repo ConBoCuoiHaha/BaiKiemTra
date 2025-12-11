@@ -8,7 +8,7 @@
 
 <body class="container mt-4">
     <h1 th:text="${product.id == null} ? 'Thêm mới' : 'Chỉnh sửa'"></h1>
-    <form th:action="@{/products/save}" th:object="${product}" method="post">
+    <form th:action="@{/products/save}" th:object="${product}" method="post" enctype="multipart/form-data">
         <input type="hidden" th:field="*{id}" />
 
         <div class="mb-3">
@@ -22,8 +22,9 @@
         </div>
 
         <div class="mb-3">
-            <label>Image URL:</label>
-            <input type="text" th:field="*{image}" class="form-control" />
+            <label>Image:</label>
+            <input type="file" name="imageFile" class="form-control" accept="image/*" />
+            <input type="hidden" th:field="*{image}" />
         </div>
 
         <button type="submit" class="btn btn-success">Lưu</button>
