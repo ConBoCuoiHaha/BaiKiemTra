@@ -32,6 +32,12 @@ public class ProductController {
         productService.saveProduct(product);
         return "redirect:/products";
     }
+
+    @GetMapping("/edit/{id}")
+    public String showEditForm(@org.springframework.web.bind.annotation.PathVariable Long id, Model model) {
+        model.addAttribute("product", productService.getProductById(id));
+        return "form";
+    }
     @GetMapping("/delete/{id}")
     public String deleteProduct(@org.springframework.web.bind.annotation.PathVariable Long id) {
         productService.deleteProduct(id);
